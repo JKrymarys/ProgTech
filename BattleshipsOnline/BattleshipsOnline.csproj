@@ -54,6 +54,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Sources\Coors.cs" />
+    <Compile Include="Sources\Field.cs" />
+    <Compile Include="Sources\ShipTypes\Battleship.cs" />
+    <Compile Include="Sources\ShipTypes\Carrier.cs" />
+    <Compile Include="Sources\ShipTypes\Cruiser.cs" />
+    <Compile Include="Sources\ShipTypes\Destroyer.cs" />
+    <Compile Include="Sources\ShipTypes\Ship.cs" />
+    <Compile Include="Sources\ShipTypes\FieldTypes.cs" />
+    <Compile Include="Sources\ShipTypes\Submarine.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
