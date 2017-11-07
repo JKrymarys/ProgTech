@@ -20,14 +20,18 @@
           <e p="Settings.settings" t="Include" />
         </e>
         <e p="Sources" t="Include">
-          <e p="Coors.cs" t="Include" />
+          <e p="Board.cs" t="Include" />
+          <e p="Coords.cs" t="Include" />
           <e p="Field.cs" t="Include" />
+          <e p="FiringBoard.cs" t="Include" />
+          <e p="Game.cs" t="Include" />
+          <e p="Player.cs" t="Include" />
           <e p="Shiptypes" t="Include">
             <e p="Battleship.cs" t="Include" />
             <e p="Carrier.cs" t="Include" />
-            <e p="Cruiser.cs" t="Include" />
             <e p="Destroyer.cs" t="Include" />
-            <e p="FieldTypes.cs" t="Include" />
+            <e p="FieldType.cs" t="Include" />
+            <e p="Patrol.cs" t="Include" />
             <e p="Ship.cs" t="Include" />
             <e p="Submarine.cs" t="Include" />
           </e>

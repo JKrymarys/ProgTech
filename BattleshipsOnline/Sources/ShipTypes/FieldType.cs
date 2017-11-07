@@ -1,6 +1,6 @@
 ﻿namespace BattleshipsOnline.Sources
 {
-    public enum FieldTypes
+    public enum FieldType
     {
        
         Empty = 'o',

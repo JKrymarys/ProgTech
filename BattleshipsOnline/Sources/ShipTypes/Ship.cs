@@ -9,9 +9,11 @@ namespace BattleshipsOnline.Sources
         private int length;
         private int hitsTaken;
         private int IsSunk;
+        public FieldType FieldType { get; set; }
         
         public int Length
         {
+            get { return length; }
             set {
                 if(length == 0) //it is possible to set Length only once, when its 0 (default value for int)
                     length= value; 

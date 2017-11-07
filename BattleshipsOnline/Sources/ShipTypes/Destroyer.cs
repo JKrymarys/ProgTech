@@ -4,7 +4,7 @@
     {
         public Destroyer()
         {
-            this.Length = 2;
+            this.Length = 3;
         }
     }
 }
