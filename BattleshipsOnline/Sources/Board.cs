@@ -9,7 +9,7 @@ namespace BattleshipsOnline.Sources
     public class Board
     {
         private List<Field> fields;
-        public static List<Field> Fields { get; set; }
+        protected List<Field> Fields { get; set; }
             
         public Board()
         {
@@ -22,7 +22,7 @@ namespace BattleshipsOnline.Sources
             }
         }
 
-        public static  Field getAt(int x, int y)
+        public Field getFieldAt(int x, int y)
         {
             return Fields.ElementAt(y * 10 + x + 1);
         }
@@ -31,10 +31,10 @@ namespace BattleshipsOnline.Sources
         {
             
             //TODO: check if y and x are assigned properly
-            return fields.Where(x => x.coordinatas.y >= startRow 
-                                     && x.coordinatas.y >= startColumn 
-                                     && x.coordinatas.x <= endRow 
-                                     && x.coordinatas.y <= endColumn).ToList();
+            return fields.Where(f => f.coordinatas.y >= startRow 
+                                     && f.coordinatas.y >= startColumn 
+                                     && f.coordinatas.x <= endRow 
+                                     && f.coordinatas.y <= endColumn).ToList();
         }
     }
 }

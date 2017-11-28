@@ -21,6 +21,7 @@
         </e>
         <e p="Sources" t="Include">
           <e p="Board.cs" t="Include" />
+          <e p="Client.cs" t="Include" />
           <e p="Coords.cs" t="Include" />
           <e p="Field.cs" t="Include" />
           <e p="FiringBoard.cs" t="Include" />
@@ -32,9 +33,11 @@
             <e p="Destroyer.cs" t="Include" />
             <e p="FieldType.cs" t="Include" />
             <e p="Patrol.cs" t="Include" />
+            <e p="Server.cs" t="Include" />
             <e p="Ship.cs" t="Include" />
             <e p="Submarine.cs" t="Include" />
           </e>
+          <e p="StartClass.cs" t="Include" />
         </e>
       </e>
       <e p="BattleshipsOnline.sln" t="IncludeFlat" />

@@ -54,16 +54,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Sources\Client.cs" />
     <Compile Include="Sources\Coords.cs" />
     <Compile Include="Sources\Board.cs" />
     <Compile Include="Sources\Field.cs" />
     <Compile Include="Sources\FiringBoard.cs" />
     <Compile Include="Sources\Game.cs" />
+    <Compile Include="Sources\StartClass.cs" />
     <Compile Include="Sources\Player.cs" />
     <Compile Include="Sources\ShipTypes\Battleship.cs" />
     <Compile Include="Sources\ShipTypes\Carrier.cs" />
     <Compile Include="Sources\ShipTypes\Destroyer.cs" />
     <Compile Include="Sources\ShipTypes\Patrol.cs" />
+    <Compile Include="Sources\ShipTypes\Server.cs" />
     <Compile Include="Sources\ShipTypes\Ship.cs" />
     <Compile Include="Sources\ShipTypes\FieldType.cs" />
     <Compile Include="Sources\ShipTypes\Submarine.cs" />

@@ -11,9 +11,9 @@
             this.type = FieldType.Empty;
         }
 
-        public char GetStatus()
+        public FieldType GetStatus()
         {
-            return (char)this.type;
+            return this.type;
         }
 
         public bool IsOccupiedByShip()

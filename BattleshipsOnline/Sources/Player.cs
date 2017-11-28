@@ -7,8 +7,8 @@ namespace BattleshipsOnline.Sources
     public class Player
     {
         private string name;
-        private FiringBoard firingBoard;
-        private Board ownBoard;
+        private static FiringBoard firingBoard;
+        private static Board ownBoard;
         private List<Ship> ships;
 
 
@@ -53,7 +53,7 @@ namespace BattleshipsOnline.Sources
                 while (isOpen)
                 {
                 
-                    var startcolumn = rand.Next(1, 11); //second value is exclusive, whilst firs is included
+                    var startcolumn = rand.Next(1, 11); //second value is exclusive, whilst first is included
                     var startrow = rand.Next(1, 11);
                     int endrow = startrow, endcolumn = startcolumn;
                     var orientation = rand.Next(1, 101) % 2; //0 for Horizontal
@@ -98,7 +98,34 @@ namespace BattleshipsOnline.Sources
                 }
             }
         }
-        
+
+
+        public Coords FireShot()
+        {
+            //If there are hits on the board with neighbors which don't have shots, we should fire at those first.
+            var hitNeighbors = FiringBoard.GetHitNeighbors();
+            Coords coords;
+            if (hitNeighbors.Any())
+            {
+                coords = SearchingShot();
+            }
+            else
+            {
+                coords = RandomShot();
+            }
+            Console.WriteLine(Name + " says: \"Firing shot at " + coords.y.ToString() + ", " + coords.x.ToString() + "\"");
+            return coords;
+        }
+
+        private Coords RandomShot()
+        {
+            return null;
+        }
+
+        private Coords SearchingShot()
+        {
+            return null;
+        }
         
         
         
@@ -113,12 +140,12 @@ namespace BattleshipsOnline.Sources
             {
                 for(int ownColumn = 1; ownColumn <= 10; ownColumn++)
                 {
-                    Console.Write(Board.getAt(row, ownColumn).GetStatus() + " ");
+                    Console.Write(ownBoard.getFieldAt(row, ownColumn).GetStatus() + " ");
                 }
                 Console.Write("                ");
                 for (int firingColumn = 1; firingColumn <= 10; firingColumn++)
                 {
-                    Console.Write(FiringBoard.getAt(row, firingColumn).GetStatus() + " ");
+                    Console.Write(firingBoard.getFieldAt(row, firingColumn).GetStatus() + " ");
                 }
                 Console.WriteLine(Environment.NewLine);
             }

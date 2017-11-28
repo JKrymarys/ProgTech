@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BattleshipsOnline.Sources
 {
@@ -10,15 +11,43 @@ namespace BattleshipsOnline.Sources
         {
             return null;
         }
+        
+        
 
-        public List<Coords> GetHitNeighbors()
+        public List<Field> GetHitNeighbors()
         {
-            return null;
+            List<Field> toReturn = new List<Field>();
+            var hits = Fields.Where(x => x.GetStatus() == FieldType.Hit);
+            foreach(var hit in hits)
+            {
+                Fields.AddRange(GetNeighbors(hit.coordinatas).ToList());
+            }
+            return toReturn.Distinct().Where(x => x.GetStatus() == FieldType.Empty).ToList();
+   
         }
 
         public List<Field> GetNeighbors(Coords coordinates)
         {
-            return null;
+            int row = coordinates.y;
+            int column = coordinates.x;
+            List<Field> panels = new List<Field>();
+            if (column > 1)
+            {
+                panels.Add(this.getFieldAt(row, column - 1));
+            }
+            if (row > 1)
+            {
+                panels.Add(this.getFieldAt(row - 1, column));
+            }
+            if (row < 10)
+            {
+                panels.Add(this.getFieldAt(row + 1, column));
+            }
+            if (column < 10)
+            {
+                panels.Add(this.getFieldAt(row, column + 1));
+            }
+            return panels;
         }
     }
 }
