@@ -103,7 +103,7 @@ namespace BattleshipsOnline.Sources
         public Coords FireShot()
         {
             //If there are hits on the board with neighbors which don't have shots, we should fire at those first.
-            var hitNeighbors = FiringBoard.GetHitNeighbors();
+            var hitNeighbors = firingBoard.GetHitNeighbors();
             Coords coords;
             if (hitNeighbors.Any())
             {

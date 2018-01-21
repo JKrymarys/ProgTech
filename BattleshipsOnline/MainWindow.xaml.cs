@@ -26,5 +26,38 @@ namespace BattleshipsOnline
         {
             InitializeComponent();
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void StartGame_Click(object sender, RoutedEventArgs e)
+        {
+            String name = PlayerName.Text;
+            if (String.IsNullOrEmpty(name))
+            {
+                MessageBox.Show("Name cannot be empty");
+                return;
+            }
+            SetupShips setupShipsWindow = new SetupShips();
+            setupShipsWindow.Show();
+            this.Close();
+        }
+
+        private void JoinGame_Checked(object sender, RoutedEventArgs e)
+        {
+            IPPanel.Visibility = Visibility.Visible;
+        }
+        private void HostGame_Checked(object sender, RoutedEventArgs e)
+        {
+            IPPanel.Visibility = Visibility.Hidden;
+        }
+
+        private void HelpButton_Click(object sender, RoutedEventArgs e)
+        {
+            // put the rules of the game here
+            MessageBox.Show("Lorem Ipsum");
+        }
     }
 }

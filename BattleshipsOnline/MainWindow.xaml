@@ -5,14 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BattleshipsOnline"
         mc:Ignorable="d"
-        Title="Battleships" Height="350" Width="525">
+        Title="Battleships Online" Height="350" Width="525">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="White" Offset="0.463"/>
             <GradientStop Color="#FFA6B1F5" Offset="0.01"/>
         </LinearGradientBrush>
     </Window.Background>
-    <Grid>
-        
-    </Grid>
+    <Border Padding="10">
+
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Battleships Online" HorizontalAlignment="Center" FontSize="40"/>
+            <StackPanel Grid.Row="1" Margin="0 5">
+                <TextBlock Text="Name:" FontSize="15"/>
+                <TextBox x:Name="PlayerName" Padding="3"/>
+            </StackPanel>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <RadioButton Content="Host Game" Grid.Column="0" HorizontalAlignment="Center" Checked="HostGame_Checked"/>
+                <RadioButton Content="Join Game" Grid.Column="1" HorizontalAlignment="Center" Checked="JoinGame_Checked"/>
+            </Grid>
+            <StackPanel x:Name="IPPanel" Grid.Row="3" Visibility="Hidden" Margin="0 5">
+                <TextBlock Text="Opponent's IP:" FontSize="15"/>
+                <TextBox x:Name="OpponentIP" Padding="3"/>
+            </StackPanel>
+            <Button Grid.Row="4" Content="Start Game" Click="StartGame_Click" HorizontalAlignment="Center" Padding="5" Background="Navy"  FontSize="20" FontFamily="Helvetica" Foreground="White"/>
+            <Button Grid.Row="5" Content="How to play?" Click="HelpButton_Click"  HorizontalAlignment="Right" Padding="5" FontSize="10" />
+
+        </Grid>
+    </Border>
+
 </Window>
