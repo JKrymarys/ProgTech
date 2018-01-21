@@ -16,3 +16,20 @@ C:\Users\ukasz\Documents\Github\ProgTech\BattleshipsOnline\obj\Debug\Battleships
 C:\Users\ukasz\Documents\Github\ProgTech\BattleshipsOnline\obj\Debug\BattleshipsOnline.csproj.CoreCompileInputs.cache
 C:\Users\ukasz\Documents\Github\ProgTech\BattleshipsOnline\obj\Debug\BattleshipsOnline.exe
 C:\Users\ukasz\Documents\Github\ProgTech\BattleshipsOnline\obj\Debug\BattleshipsOnline.pdb
+E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\bin\Debug\BattleshipsOnline.exe.config
+E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\BattleshipsOnline.exe
+E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\BattleshipsOnline.pdb
+E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\Game.baml
+E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\SetupShips.baml
+E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\Game.g.cs
+E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\MainWindow.g.cs
+E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\SetupShips.g.cs
+E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\App.g.cs
+E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\BattleshipsOnline_MarkupCompile.cache
+E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\BattleshipsOnline_MarkupCompile.lref
+E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\bin\Debug\BattleshipsOnline.exe
+E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\bin\Debug\BattleshipsOnline.pdb
+E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\MainWindow.baml
+E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\BattleshipsOnline.g.resources
+E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\BattleshipsOnline.Properties.Resources.resources
+E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\BattleshipsOnline.csproj.GenerateResource.Cache

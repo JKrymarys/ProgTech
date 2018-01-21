@@ -2,8 +2,8 @@
 {
     public class Game
     {
-        public Player player1 { get; }
-        public Player player2 { get; }
+        public Player player1 { get; set; }
+        public Player player2 { get; set; }
 
         public Game()
         {

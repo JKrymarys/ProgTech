@@ -75,6 +75,9 @@
     <Compile Include="Sources\ShipTypes\Ship.cs" />
     <Compile Include="Sources\ShipTypes\FieldType.cs" />
     <Compile Include="Sources\ShipTypes\Submarine.cs" />
+    <Compile Include="Sources\TCPConnector\MyClient.cs" />
+    <Compile Include="Sources\TCPConnector\MyServer.cs" />
+    <Compile Include="Sources\TCPConnector\WriterReader.cs" />
     <Page Include="Game.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

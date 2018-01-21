@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BattleshipsOnline.Sources.TCPConnector;
 
 namespace BattleshipsOnline
 {
@@ -21,6 +22,7 @@ namespace BattleshipsOnline
     public partial class MainWindow : Window
     {
         Grid grid = new Grid();
+        MyServer server;
 
         public MainWindow()
         {
@@ -32,6 +34,11 @@ namespace BattleshipsOnline
 
         }
 
+        private void StartHosting_Click(object sender, RoutedEventArgs e)
+        {
+            this.server = new MyServer();
+            HostIP.Text = server.myIPAddress.AddressList[1].ToString();
+        }
         private void StartGame_Click(object sender, RoutedEventArgs e)
         {
             String name = PlayerName.Text;
@@ -40,18 +47,43 @@ namespace BattleshipsOnline
                 MessageBox.Show("Name cannot be empty");
                 return;
             }
-            SetupShips setupShipsWindow = new SetupShips();
-            setupShipsWindow.Show();
-            this.Close();
+            Boolean? isClient = clientBtn.IsChecked;
+            if (isClient.Value)
+            {
+                String IPAddress = OpponentIP.Text;
+                MyClient client = new MyClient(IPAddress);
+                SetupShips setupShipsWindow = new SetupShips(client);
+                setupShipsWindow.Show();
+                this.Close();
+            }
+            else
+            {
+               if (server == null || server.tcpClient == null)
+                {
+                    MessageBox.Show("Wait for a client to Join");
+                    return;
+                }
+                else
+                {
+                    SetupShips setupShipsWindow = new SetupShips(server);
+                    setupShipsWindow.Show();
+                    this.Close();
+                }
+            }
+
         }
 
         private void JoinGame_Checked(object sender, RoutedEventArgs e)
         {
             IPPanel.Visibility = Visibility.Visible;
+            MyIPPanel.Visibility = Visibility.Hidden;
+            hostBtnStart.Visibility = Visibility.Hidden;
         }
         private void HostGame_Checked(object sender, RoutedEventArgs e)
         {
             IPPanel.Visibility = Visibility.Hidden;
+            MyIPPanel.Visibility = Visibility.Visible;
+            hostBtnStart.Visibility = Visibility.Visible;
         }
 
         private void HelpButton_Click(object sender, RoutedEventArgs e)

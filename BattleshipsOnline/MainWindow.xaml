@@ -5,16 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BattleshipsOnline"
         mc:Ignorable="d"
-        Title="Battleships Online" Height="350" Width="525">
+        Title="Battleships Online" Height="500.746" Width="575.746">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="White" Offset="0.463"/>
             <GradientStop Color="#FFA6B1F5" Offset="0.01"/>
         </LinearGradientBrush>
     </Window.Background>
-    <Border Padding="10">
+    <Border Padding="10" Margin="0,0,0,-21">
 
-        <Grid>
+        <Grid Height="375" VerticalAlignment="Top">
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="2*"/>
@@ -35,15 +35,20 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <RadioButton Content="Host Game" Grid.Column="0" HorizontalAlignment="Center" Checked="HostGame_Checked"/>
-                <RadioButton Content="Join Game" Grid.Column="1" HorizontalAlignment="Center" Checked="JoinGame_Checked"/>
+                <RadioButton Content="Host Game" x:Name="hostBtn" Grid.Column="0" HorizontalAlignment="Center" Checked="HostGame_Checked"/>
+                <RadioButton Content="Join Game" x:Name="clientBtn" Grid.Column="1" HorizontalAlignment="Center" Checked="JoinGame_Checked"/>
             </Grid>
+            <StackPanel x:Name="MyIPPanel" Grid.Row="3" Margin="0 5">
+                <TextBlock Text="Host IP:" FontSize="15"/>
+                <TextBox x:Name="HostIP" Padding="3"/>
+            </StackPanel>
             <StackPanel x:Name="IPPanel" Grid.Row="3" Visibility="Hidden" Margin="0 5">
                 <TextBlock Text="Opponent's IP:" FontSize="15"/>
                 <TextBox x:Name="OpponentIP" Padding="3"/>
             </StackPanel>
-            <Button Grid.Row="4" Content="Start Game" Click="StartGame_Click" HorizontalAlignment="Center" Padding="5" Background="Navy"  FontSize="20" FontFamily="Helvetica" Foreground="White"/>
-            <Button Grid.Row="5" Content="How to play?" Click="HelpButton_Click"  HorizontalAlignment="Right" Padding="5" FontSize="10" />
+            <Button Grid.Row="5" Content="Start Hosting" x:Name="hostBtnStart" Click="StartHosting_Click" HorizontalAlignment="Left" Padding="5" FontSize="10" Width="129" Margin="0,0,0,-6"/>
+            <Button Grid.Row="4" Content="Start Game" Click="StartGame_Click" HorizontalAlignment="Center" Padding="5" Background="Navy"  FontSize="20" FontFamily="Helvetica" Foreground="White" Margin="209,44,201,-19" Grid.RowSpan="2" Width="138"/>
+            <Button Grid.Row="5" Content="How to play?" Click="HelpButton_Click"  HorizontalAlignment="Right" Padding="5" FontSize="10" Margin="0,8,0,-8" />
 
         </Grid>
     </Border>

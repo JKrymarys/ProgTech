@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using BattleshipsOnline.Sources.TCPConnector;
 
 namespace BattleshipsOnline
 {
@@ -12,10 +13,10 @@ namespace BattleshipsOnline
     /// </summary>
     public partial class SetupShips : Window
     {
-     
-        public SetupShips()
+        WriterReader TCPObject;
+        public SetupShips(WriterReader TCPInterface)
         {
-
+            this.TCPObject = TCPInterface;
             InitializeComponent();
             
         }

@@ -2,7 +2,7 @@
 {
     public class Field
     {
-        public Coords coordinatas { get; }
+        public Coords coordinatas { get; set; }
         public FieldType type { get; set; }
 
         public Field(Coords _coordinatas)
