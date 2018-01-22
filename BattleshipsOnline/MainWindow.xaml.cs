@@ -52,7 +52,7 @@ namespace BattleshipsOnline
             {
                 String IPAddress = OpponentIP.Text;
                 MyClient client = new MyClient(IPAddress);
-                SetupShips setupShipsWindow = new SetupShips(client);
+                SetupShips setupShipsWindow = new SetupShips(client, false);
                 setupShipsWindow.Show();
                 this.Close();
             }
@@ -65,7 +65,7 @@ namespace BattleshipsOnline
                 }
                 else
                 {
-                    SetupShips setupShipsWindow = new SetupShips(server);
+                    SetupShips setupShipsWindow = new SetupShips(server, true);
                     setupShipsWindow.Show();
                     this.Close();
                 }

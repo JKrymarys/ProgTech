@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Battleships Online" Height="450" Width="700" ResizeMode="NoResize">
-    <Grid>
+        Title="Battleships Online" Height="551.493" Width="704.478" ResizeMode="NoResize">
+    <Grid Margin="0,0,-6,37">
         <Grid HorizontalAlignment="Right" Width="300" Height="300" 
               VerticalAlignment="Center" Margin="0 5 40 0" Name="CompGrid" ShowGridLines="True">
             <Grid.ColumnDefinitions>
@@ -233,7 +233,7 @@
             <Grid x:Name="J10" Grid.Row="9" Grid.Column="9" MouseDown="gridMouseDown"  Background="#FFF0F0F0">
             </Grid>
         </Grid>
-        
+
         <Label x:Name="lblVerticalA_Copy" Content="A" VerticalAlignment="Top" Height="26" FontFamily="Stencil" FontSize="14.667" Margin="657,67,0,0"/>
         <Label x:Name="lblVerticalB_Copy" Content="B" Margin="657,93,0,0" VerticalAlignment="Top" Height="26" FontFamily="Stencil" FontSize="14.667"/>
         <Label x:Name="lblVerticalC_Copy" Content="C" Margin="657,124,0,0" VerticalAlignment="Top" Height="26" FontFamily="Stencil" FontSize="14.667"/>
@@ -372,14 +372,25 @@
             <Grid x:Name="gridJ9" Grid.Row="9" Grid.Column="8" Background="#FFF0F0F0"/>
             <Grid x:Name="gridJ10" Grid.Row="9" Grid.Column="9"  Background="#FFF0F0F0"/>
         </Grid>
-        <Grid VerticalAlignment="Bottom" Margin="0 20">
+        <Grid VerticalAlignment="Bottom" Margin="0,0,0,10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="173*"/>
+                <ColumnDefinition Width="11*"/>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="161*"/>
+                <ColumnDefinition Width="352*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="Your grid" HorizontalAlignment="Center" Grid.Column="0" FontSize="20" FontFamily="Helvetica" Foreground="Gray"/>
-            <TextBlock Text="Opponent's grid" HorizontalAlignment="Center" Grid.Column="1" FontSize="20" FontFamily="Helvetica" Foreground="Gray"/>
+            <TextBlock Text="Your grid" HorizontalAlignment="Center" Grid.Column="0" FontSize="20" FontFamily="Helvetica" Foreground="Gray" Margin="136,-18,135,18" Grid.ColumnSpan="4"/>
+            <TextBlock Text="Opponent's grid" HorizontalAlignment="Center" Grid.Column="4" FontSize="20" FontFamily="Helvetica" Foreground="Gray" Margin="101,-18,106,18"/>
+
+
+             <TextBox x:Name="MessageBox" Padding="3" Visibility="Hidden" Margin="0,20,54,-20" Grid.ColumnSpan="4"/>
+ 
+            <Button Content="Click to start" x:Name="startBtn" Click="startBtn_Click" Grid.Column="0"  HorizontalAlignment="Center" Padding="5" FontSize="10" Width="130" Grid.ColumnSpan="4" Margin="106,20,116,-20"  />
+            <Button Content="Shoot" x:Name="shootBtn" Click="shootBtn_Click" Grid.Column="4"  HorizontalAlignment="Center" Padding="5" FontSize="10" Width="130" Margin="101,20,121,-20" />
+
         </Grid>
 
     </Grid>
+
 </Window>

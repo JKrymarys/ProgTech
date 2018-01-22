@@ -14,9 +14,11 @@ namespace BattleshipsOnline
     public partial class SetupShips : Window
     {
         WriterReader TCPObject;
-        public SetupShips(WriterReader TCPInterface)
+        private Boolean isServer;
+        public SetupShips(WriterReader TCPInterface, Boolean isServer)
         {
             this.TCPObject = TCPInterface;
+            this.isServer = isServer;
             InitializeComponent();
             
         }
@@ -36,7 +38,7 @@ namespace BattleshipsOnline
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            Game GameWindow = new Game();
+            Game GameWindow = new Game(TCPObject, isServer);
             GameWindow.Show();
             this.Close();
         }

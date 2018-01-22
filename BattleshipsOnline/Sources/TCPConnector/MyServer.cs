@@ -68,7 +68,6 @@ namespace BattleshipsOnline.Sources.TCPConnector
             String message = System.Text.Encoding.ASCII.GetString(data);
 
             return message;
-
         }
 
         public void sendMessage(String message)

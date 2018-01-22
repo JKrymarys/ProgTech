@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BattleshipsOnline.Sources.TCPConnector;
 
 namespace BattleshipsOnline
 {
@@ -19,14 +20,56 @@ namespace BattleshipsOnline
     /// </summary>
     public partial class Game : Window
     {
-        public Game()
+        private WriterReader TCPObject;
+        private Boolean isServer;
+        public Game(WriterReader TCPInterface, Boolean isServer)
         {
-            InitializeComponent();
+            this.TCPObject = TCPInterface;
+            this.isServer = isServer;
+            InitializeComponent();            
         }
 
         private void gridMouseDown(object sender, MouseButtonEventArgs e)
         {
 
         }
+
+        private void shootBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Visibility = Visibility.Hidden;
+            String text;
+            if (isServer) {
+                text = "#S:foo ";
+            }
+            else {
+                text = "#C:foo ";
+            }
+            // send a shoot
+            TCPObject.sendMessage(text);
+
+            // vait for the response
+            String message = TCPObject.getMessage();
+            Console.WriteLine(message);
+        }
+
+        private void startBtn_Click(object sender, RoutedEventArgs e)
+        {
+            startBtn.Visibility = Visibility.Hidden;
+            MessageBox.Visibility = Visibility.Visible;
+            
+            if (isServer)
+            {
+                MessageBox.Text = "You start!";
+            }
+            else {
+                MessageBox.Visibility = Visibility.Hidden;
+                String message = TCPObject.getMessage();
+                Console.WriteLine(message);
+            }
+
+           
+
+        }
+
     }
 }
