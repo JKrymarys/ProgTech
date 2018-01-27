@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using BattleshipsOnline.Sources;
 using BattleshipsOnline.Sources.TCPConnector;
 
 namespace BattleshipsOnline
@@ -15,6 +17,7 @@ namespace BattleshipsOnline
     {
         WriterReader TCPObject;
         private Boolean isServer;
+        public ObservableCollection<Field> fields = new ObservableCollection<Field>();
         public SetupShips(WriterReader TCPInterface, Boolean isServer)
         {
             this.TCPObject = TCPInterface;

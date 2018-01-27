@@ -31,7 +31,8 @@ namespace BattleshipsOnline
 
         private void gridMouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            Rectangle cell = sender as Rectangle;            
+            cell.Fill = new SolidColorBrush(Colors.Blue);
         }
 
         private void shootBtn_Click(object sender, RoutedEventArgs e)
