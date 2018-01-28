@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BattleshipsOnline.Sources.TCPConnector;
+using BattleshipsOnline.Sources;
 
 namespace BattleshipsOnline
 {
@@ -22,13 +23,34 @@ namespace BattleshipsOnline
     {
         private WriterReader TCPObject;
         private Boolean isServer;
-        public Game(WriterReader TCPInterface, Boolean isServer)
+        List<String> myShips = new List<String>();
+        public Game(WriterReader TCPInterface, Boolean isServer, List<String> myShips)
         {
             this.TCPObject = TCPInterface;
             this.isServer = isServer;
-            InitializeComponent();            
+            this.myShips = myShips;
+            InitializeComponent();
+            markMyShips();
+            
         }
+        private void markMyShips()
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                for (char j = 'A'; j <= 'J'; j++)
+                {
 
+                    String cellName = "grid" + j + "" + i;
+                    if (this.myShips.Contains(cellName))
+                    {
+                        Console.WriteLine(cellName);
+                        var recky = PlayerGrid.FindName(cellName) as System.Windows.Shapes.Rectangle;
+                        recky.Fill = Helper.getBrushColor("#3366ff");
+                    }
+
+                }
+            }
+        }
         private void gridMouseDown(object sender, MouseButtonEventArgs e)
         {
             Rectangle cell = sender as Rectangle;            
@@ -71,6 +93,8 @@ namespace BattleshipsOnline
            
 
         }
+        //helpers
+
 
     }
 }

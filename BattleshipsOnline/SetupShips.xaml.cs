@@ -43,7 +43,7 @@ namespace BattleshipsOnline
                 MessageBox.Show("Choose a ship to be placed first!");
             } else {
                 int shipSize = Helper.getShipSize(this.checkedShipName);
-                var shipBrush = getBrushColor(Helper.getShipColor(this.checkedShipName));
+                var shipBrush = Helper.getBrushColor(Helper.getShipColor(this.checkedShipName));
                 var senderObj = sender as System.Windows.Shapes.Rectangle;
                 String cellName = senderObj.Name;
                 String colName = cellName.Substring(4,1);
@@ -134,7 +134,7 @@ namespace BattleshipsOnline
         {
             String cellName = "grid" + colName + rowName;
             var recky = shipyardGrid.FindName(cellName) as System.Windows.Shapes.Rectangle;
-            recky.Fill = getBrushColor(Helper.getShipColor(this.checkedShipName));
+            recky.Fill = Helper.getBrushColor(Helper.getShipColor(this.checkedShipName));
         }
         private void resetGrid()
         {
@@ -146,7 +146,7 @@ namespace BattleshipsOnline
                     String cellName = "grid" + j + "" + i;
                     Console.WriteLine(cellName);
                     var recky = shipyardGrid.FindName(cellName) as System.Windows.Shapes.Rectangle;
-                    recky.Fill = getBrushColor("#FFFFFF");
+                    recky.Fill = Helper.getBrushColor("#FFFFFF");
                 }
             }
         }
@@ -163,7 +163,7 @@ namespace BattleshipsOnline
             this.checkedShipName = shipType;
 
             String colorToChange = Helper.getShipColor(shipType);
-            var shipBrush = getBrushColor(colorToChange);
+            var shipBrush = Helper.getBrushColor(colorToChange);
             changeAllShipsToDefault();
             senderObj.Fill = shipBrush;
 
@@ -178,7 +178,7 @@ namespace BattleshipsOnline
             }
             else
             {
-                Game GameWindow = new Game(TCPObject, isServer);
+                Game GameWindow = new Game(TCPObject, isServer, takenCells);
                 GameWindow.Show();
                 this.Close();
             }
@@ -251,7 +251,7 @@ namespace BattleshipsOnline
         private void changeAllShipsToDefault()
         {
             String defaultColor = Helper.DEFAULT_COLOR;
-            var defaultBrush = getBrushColor(defaultColor);
+            var defaultBrush = Helper.getBrushColor(defaultColor);
             destroyer.Fill = defaultBrush;
             cruiser.Fill = defaultBrush;
             submarine.Fill = defaultBrush;
@@ -259,10 +259,6 @@ namespace BattleshipsOnline
             carrier.Fill = defaultBrush;
 
         }
-        private System.Windows.Media.Brush getBrushColor(String colorName)
-        {
-            var converter = new System.Windows.Media.BrushConverter();
-            return (System.Windows.Media.Brush)converter.ConvertFromString(colorName);
-        }
+
     }
 }

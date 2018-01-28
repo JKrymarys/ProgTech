@@ -45,7 +45,12 @@ namespace BattleshipsOnline.Sources
                 case "carrier": return Carrier.getLength();
             }
             return 0;
-        } 
+        }
+        public static System.Windows.Media.Brush getBrushColor(String colorName)
+        {
+            var converter = new System.Windows.Media.BrushConverter();
+            return (System.Windows.Media.Brush)converter.ConvertFromString(colorName);
+        }
 
     }
 }
