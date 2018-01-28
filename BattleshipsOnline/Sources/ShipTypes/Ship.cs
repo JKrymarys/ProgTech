@@ -6,7 +6,7 @@ namespace BattleshipsOnline.Sources
     {
 //        private String name; //do we need a name of ship? For GUI eg? 
         
-        private int length;
+        public static int length;
         private int hitsTaken;
         private int IsSunk;
         public FieldType FieldType { get; set; }
@@ -42,6 +42,7 @@ namespace BattleshipsOnline.Sources
         {
             hitsTaken++;
         }
+
        
     }
 }

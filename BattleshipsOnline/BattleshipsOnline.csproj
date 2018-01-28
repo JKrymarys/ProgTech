@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -66,6 +67,7 @@
     <Compile Include="Sources\Field.cs" />
     <Compile Include="Sources\FiringBoard.cs" />
     <Compile Include="Sources\Game.cs" />
+    <Compile Include="Sources\Helper.cs" />
     <Compile Include="Sources\Player.cs" />
     <Compile Include="Sources\ShipTypes\Battleship.cs" />
     <Compile Include="Sources\ShipTypes\Carrier.cs" />

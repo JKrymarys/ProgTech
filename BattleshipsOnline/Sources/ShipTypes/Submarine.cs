@@ -6,5 +6,9 @@
         {
             this.Length = 3;
         }
+        public static int getLength()
+        {
+            return 3;
+        }
     }
 }

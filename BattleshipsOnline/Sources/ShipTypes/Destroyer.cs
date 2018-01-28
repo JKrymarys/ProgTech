@@ -4,7 +4,11 @@
     {
         public Destroyer()
         {
-            this.Length = 3;
+            this.Length = 2;
+        }
+        public static int getLength()
+        {
+            return 2;
         }
     }
 }

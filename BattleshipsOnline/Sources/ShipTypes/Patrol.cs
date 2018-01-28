@@ -4,7 +4,11 @@
     {
         public Patrol()
         {
-            this.Length = 2;
+            this.Length = 3;
+        }
+        public static int getLength()
+        {
+            return 3;
         }
     }
 }

@@ -73,7 +73,7 @@
             <Rectangle Fill="White" Stroke="Black" Name="gridC1" Grid.Row="2" Grid.Column="0" MouseDown="gridMouseDown"/>
             <Rectangle Fill="White" Stroke="Black" Name="gridC2" Grid.Row="2" Grid.Column="1" MouseDown="gridMouseDown"/>
             <Rectangle Fill="White" Stroke="Black" Name="gridC3" Grid.Row="2" Grid.Column="2" MouseDown="gridMouseDown"/>
-            <Rectangle Fill="White" Stroke="Black" Name="gridC4" Grid.Row="2" Grid.Column="3" MouseDown="gridMouseDown"/>
+            <Rectangle Fill="White" Stroke="Black" Name="gridC4" Grid.Row="2" Grid.Column="3" MouseDown="gridMouseDown" HorizontalAlignment="Left" Width="32"/>
             <Rectangle Fill="White" Stroke="Black" Name="gridC5" Grid.Row="2" Grid.Column="4" MouseDown="gridMouseDown"/>
             <Rectangle Fill="White" Stroke="Black" Name="gridC6" Grid.Row="2" Grid.Column="5" MouseDown="gridMouseDown"/>
             <Rectangle Fill="White" Stroke="Black" Name="gridC7" Grid.Row="2" Grid.Column="6" MouseDown="gridMouseDown"/>
@@ -85,7 +85,7 @@
             <Rectangle Fill="White" Stroke="Black" Name="gridD2" Grid.Row="3" Grid.Column="1" MouseDown="gridMouseDown"/>
             <Rectangle Fill="White" Stroke="Black" Name="gridD3" Grid.Row="3" Grid.Column="2" MouseDown="gridMouseDown"/>
             <Rectangle Fill="White" Stroke="Black" Name="gridD4" Grid.Row="3" Grid.Column="3" MouseDown="gridMouseDown"/>
-            <Rectangle Fill="White" Stroke="Black" Name="gridD5" Grid.Row="3" Grid.Column="4" MouseDown="gridMouseDown"/>
+            <Rectangle Fill="White" Stroke="Black" Name="gridD5" Grid.Row="3" Grid.Column="4" MouseDown="gridMouseDown" Height="32" VerticalAlignment="Top"/>
             <Rectangle Fill="White" Stroke="Black" Name="gridD6" Grid.Row="3" Grid.Column="5" MouseDown="gridMouseDown"/>
             <Rectangle Fill="White" Stroke="Black" Name="gridD7" Grid.Row="3" Grid.Column="6" MouseDown="gridMouseDown"/>
             <Rectangle Fill="White" Stroke="Black" Name="gridD8" Grid.Row="3" Grid.Column="7" MouseDown="gridMouseDown"/>
@@ -182,9 +182,12 @@
         </Grid>
 
         <Canvas x:Name="canvas" Height="80" Width="450" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <Button Content="Horizontal" MouseDown="orientationMouseDown" Canvas.Left="350" Canvas.Top="14" Width="90" Background="#FF5284C0" BorderBrush="#FFC1C0E8" Foreground ="White" FontFamily="Helvetica" FontSize="15"/>
-            <Button Content="Vertical" MouseDown="orientationMouseDown" Canvas.Left="350" Canvas.Top="48" Width="90" Background="#FF5284C0" BorderBrush="#FFC1C0E8" Foreground ="White" FontFamily="Helvetica" FontSize="15"/>
 
+            <StackPanel x:Name="shipDirection" Width="101" Canvas.Left="339" Height="42" Canvas.Top="10">
+                <RadioButton Content="Horizontal" GroupName="directionButtons" Tag="Horizontal" FontSize="18" Checked="DirectionButtonHorizontal_Checked" IsChecked="True"/>
+                <RadioButton Content="Vertical" GroupName="directionButtons" Tag="Vertical" FontSize="18" Checked="DirectionButtonVerical_Checked"/>
+            </StackPanel>
+            
             <Path Stroke="Black" StrokeThickness="2" Fill="#FFA2A2F1" Canvas.Left="47.1" Canvas.Top="7.4" Height="28.8" Stretch="Fill" Width="56.8"
             		x:Name="destroyer" MouseLeftButtonDown="ship_MouseLeftButtonDown">
                 <Path.Data>
