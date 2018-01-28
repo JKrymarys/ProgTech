@@ -26,6 +26,8 @@ namespace BattleshipsOnline
         string checkedShipName = null;
         HashSet <String> placedShips = new HashSet <String>();
         Boolean isHorizontal = true;
+        List<String> takenCells = new List<String>();
+
         public SetupShips(WriterReader TCPInterface, Boolean isServer)
         {
             this.TCPObject = TCPInterface;
@@ -55,15 +57,24 @@ namespace BattleshipsOnline
                 {
                     MessageBox.Show("Ship has to fit in a grid!");
                 }
+                else if (placedShips.Contains(this.checkedShipName)) {
+                    MessageBox.Show("This ship is already placed!");
+                }
                 else
                 {
-                    // place ships
+                    //check if does not overlap with any other ship 
+                    Boolean isCorrectlyPlaced = true;
                     if (isHorizontal)
                     {
                         for (int i = 0; i < shipSize; i++)
                         {
                             int incrementedRow = rowInt + i;
-                            changeRectangleColor(colChar, incrementedRow);
+                            String tmpCellName = "grid" + colChar + incrementedRow;
+                            if (this.takenCells.Contains(tmpCellName))
+                            {
+                                isCorrectlyPlaced = false;
+                                break;
+                            }
                         }
                     }
                     else
@@ -71,11 +82,49 @@ namespace BattleshipsOnline
                         char incrementedCol = colChar;
                         for (int i = 0; i < shipSize; i++)
                         {
-                            changeRectangleColor(incrementedCol, rowInt);
+                            String tmpCellName = "grid" + incrementedCol + rowInt;
+                            if (this.takenCells.Contains(tmpCellName))
+                            {
+                                isCorrectlyPlaced = false;
+                                break;
+                            }
                             incrementedCol = incrementCharacter(incrementedCol);
+                           
                         }
                     }
+                    if (!isCorrectlyPlaced)
+                    {
+                        MessageBox.Show("Ships cannot overlap!");
+                    }
+                    else
+                    {
+                        // place ships
+                        placedShips.Add(this.checkedShipName);
+
+                        if (isHorizontal)
+                        {
+                            for (int i = 0; i < shipSize; i++)
+                            {
+                                int incrementedRow = rowInt + i;
+                                changeRectangleColor(colChar, incrementedRow);
+                                String tmpCellName = "grid" + colChar + incrementedRow;
+                                this.takenCells.Add(tmpCellName);
+                            }
+                        }
+                        else
+                        {
+                            char incrementedCol = colChar;
+                            for (int i = 0; i < shipSize; i++)
+                            {
+                                changeRectangleColor(incrementedCol, rowInt);
+                                String tmpCellName = "grid" + incrementedCol + rowInt;
+                                this.takenCells.Add(tmpCellName);
+                                incrementedCol = incrementCharacter(incrementedCol);
+                            }
+                        }
                     
+                    
+                    }
                     
                 }
                 
@@ -86,6 +135,20 @@ namespace BattleshipsOnline
             String cellName = "grid" + colName + rowName;
             var recky = shipyardGrid.FindName(cellName) as System.Windows.Shapes.Rectangle;
             recky.Fill = getBrushColor(Helper.getShipColor(this.checkedShipName));
+        }
+        private void resetGrid()
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                for (char j = 'A'; j <= 'J'; j++)
+                {
+                    
+                    String cellName = "grid" + j + "" + i;
+                    Console.WriteLine(cellName);
+                    var recky = shipyardGrid.FindName(cellName) as System.Windows.Shapes.Rectangle;
+                    recky.Fill = getBrushColor("#FFFFFF");
+                }
+            }
         }
         private void orientationMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
@@ -124,7 +187,8 @@ namespace BattleshipsOnline
 
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
-
+            this.placedShips.Clear();
+            resetGrid();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
