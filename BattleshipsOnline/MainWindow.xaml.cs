@@ -80,20 +80,12 @@ namespace BattleshipsOnline
         private void JoinGame_Checked(object sender, RoutedEventArgs e)
         {
             IPPanel.Visibility = Visibility.Visible;
-            MyIPPanel.Visibility = Visibility.Hidden;
-            hostBtnStart.Visibility = Visibility.Hidden;
+            MyIPPanel.Visibility = Visibility.Collapsed;
         }
         private void HostGame_Checked(object sender, RoutedEventArgs e)
         {
-            IPPanel.Visibility = Visibility.Hidden;
+            IPPanel.Visibility = Visibility.Collapsed;
             MyIPPanel.Visibility = Visibility.Visible;
-            hostBtnStart.Visibility = Visibility.Visible;
-        }
-
-        private void HelpButton_Click(object sender, RoutedEventArgs e)
-        {
-            // put the rules of the game here
-            MessageBox.Show("Lorem Ipsum");
         }
     }
 }

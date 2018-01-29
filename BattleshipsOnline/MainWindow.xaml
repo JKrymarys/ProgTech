@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BattleshipsOnline"
         mc:Ignorable="d"
-        Title="Battleships Online" Height="500.746" Width="575.746">
+        Title="Battleships Online" Height="450" Width="600">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
             <GradientStop Color="White" Offset="0.463"/>
@@ -17,12 +17,11 @@
         <Grid Height="375" VerticalAlignment="Top">
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="40"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="auto"/>
 
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Text="Battleships Online" HorizontalAlignment="Center" FontSize="40"/>
@@ -35,20 +34,24 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <RadioButton Content="Host Game" x:Name="hostBtn" Grid.Column="0" HorizontalAlignment="Center" Checked="HostGame_Checked"/>
-                <RadioButton Content="Join Game" x:Name="clientBtn" Grid.Column="1" HorizontalAlignment="Center" Checked="JoinGame_Checked"/>
+                <RadioButton Content="Host Game" x:Name="hostBtn" Grid.Column="0"  HorizontalAlignment="Center" Checked="HostGame_Checked" FontSize="15"/>
+                <RadioButton Content="Join Game" x:Name="clientBtn" Grid.Column="1" HorizontalAlignment="Center" Checked="JoinGame_Checked" FontSize="15"/>
             </Grid>
-            <StackPanel x:Name="MyIPPanel" Grid.Row="3" Margin="0 5">
-                <TextBlock Text="Host IP:" FontSize="15"/>
-                <TextBox x:Name="HostIP" Padding="3"/>
-            </StackPanel>
-            <StackPanel x:Name="IPPanel" Grid.Row="3" Visibility="Hidden" Margin="0 5">
-                <TextBlock Text="Opponent's IP:" FontSize="15"/>
-                <TextBox x:Name="OpponentIP" Padding="3"/>
-            </StackPanel>
-            <Button Grid.Row="5" Content="Start Hosting" x:Name="hostBtnStart" Click="StartHosting_Click" HorizontalAlignment="Left" Padding="5" FontSize="10" Width="129" Margin="0,0,0,-6"/>
-            <Button Grid.Row="4" Content="Start Game" Click="StartGame_Click" HorizontalAlignment="Center" Padding="5" Background="Navy"  FontSize="20" FontFamily="Helvetica" Foreground="White" Margin="209,44,201,-19" Grid.RowSpan="2" Width="138"/>
-            <Button Grid.Row="5" Content="How to play?" Click="HelpButton_Click"  HorizontalAlignment="Right" Padding="5" FontSize="10" Margin="0,8,0,-8" />
+            <Grid x:Name="MyIPPanel" Visibility="Collapsed" Grid.Row="3" Margin="0 5">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Content="Start Hosting" x:Name="hostBtnStart" Height="40" Click="StartHosting_Click" HorizontalAlignment="Center" Padding="5" FontSize="15"/>
+                <TextBlock Grid.Row="1" Text="Host IP:" FontSize="25" FontWeight="Bold"/>
+                <TextBlock Grid.Row="1" HorizontalAlignment="Center" FontSize="25" x:Name="HostIP"/>
+            </Grid>
+            <Grid x:Name="IPPanel" Grid.Row="3" Visibility="Collapsed" Margin="0 5">
+                <TextBlock Text="Opponent's IP:" FontSize="25" FontWeight="Bold"/>
+                <TextBox x:Name="OpponentIP" FontSize="25" HorizontalAlignment="Right" Width="300"/>
+
+            </Grid>
+            <Button Grid.Row="4" Content="Start Game" Click="StartGame_Click" HorizontalAlignment="Center" Padding="10" Background="#FF5284C0" BorderBrush="#FFC1C0E8"  FontSize="30" FontFamily="Helvetica" Foreground="White" Margin="0 50 0 0" Grid.RowSpan="2"/>
 
         </Grid>
     </Border>

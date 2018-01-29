@@ -33,5 +33,4 @@ E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\Mai
 E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\BattleshipsOnline.g.resources
 E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\BattleshipsOnline.Properties.Resources.resources
 E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\BattleshipsOnline.csproj.GenerateResource.Cache
-C:\Users\ukasz\Documents\Github\ProgTech\BattleshipsOnline\obj\Debug\BattleshipsOnline.csprojResolveAssemblyReference.cache
 E:\Studia\IT\Programming Technologies\repository\BattleshipsOnline\obj\Debug\BattleshipsOnline.csprojResolveAssemblyReference.cache
