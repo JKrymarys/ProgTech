@@ -61,7 +61,7 @@ namespace BattleshipsOnline.Sources.TCPConnector
         }
 
         public String getMessage() {
-            Byte[] data = new Byte[256];
+            Byte[] data = new Byte[7];
             Int32 flag;
 
             flag = stream.Read(data, 0, data.Length);
@@ -72,7 +72,7 @@ namespace BattleshipsOnline.Sources.TCPConnector
 
         public void sendMessage(String message)
         {
-            Byte[] data = new Byte[256];
+            Byte[] data = new Byte[7];
             data = Encoding.ASCII.GetBytes(message);
             stream.Write(data, 0, data.Length);
         }

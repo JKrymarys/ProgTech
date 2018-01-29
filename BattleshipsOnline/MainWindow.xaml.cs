@@ -37,7 +37,11 @@ namespace BattleshipsOnline
         private void StartHosting_Click(object sender, RoutedEventArgs e)
         {
             this.server = new MyServer();
-            HostIP.Text = server.myIPAddress.AddressList[1].ToString();
+            HostIP.Text = server.myIPAddress.AddressList[2].ToString();
+            for (int index = 0; index < server.myIPAddress.AddressList.Length; index++)
+            {
+                Console.WriteLine(server.myIPAddress.AddressList[index]);
+            }
         }
         private void StartGame_Click(object sender, RoutedEventArgs e)
         {

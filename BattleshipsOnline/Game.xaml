@@ -348,13 +348,10 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="MessageBox" Padding="3" Visibility="Hidden" Margin="10" Grid.ColumnSpan="4"/>
+            <TextBox x:Name="MyMessageBox" Padding="3" Visibility="Hidden" Margin="10" Grid.ColumnSpan="4"/>
             
 
             <Button Content="Click to start" x:Name="startBtn" Click="startBtn_Click" Grid.Column="0"  HorizontalAlignment="Center" Padding="5" FontSize="15" Margin="10"  />
-            
-            <Button Content="Shoot" x:Name="shootBtn" Click="shootBtn_Click" Grid.Column="1"  HorizontalAlignment="Center" Padding="5" FontSize="15" Margin="10" />
-            
         </Grid>
     </Grid>
 

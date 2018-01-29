@@ -28,7 +28,7 @@ namespace BattleshipsOnline.Sources.TCPConnector
         }
         public String getMessage()
         {
-            Byte[] data = new Byte[256];
+            Byte[] data = new Byte[7];
             Int32 flag = stream.Read(data, 0, data.Length);
             return System.Text.Encoding.ASCII.GetString(data);
         }

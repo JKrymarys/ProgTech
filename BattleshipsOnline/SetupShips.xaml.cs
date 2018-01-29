@@ -138,13 +138,13 @@ namespace BattleshipsOnline
         }
         private void resetGrid()
         {
+            takenCells.Clear();
             for (int i = 1; i <= 10; i++)
             {
                 for (char j = 'A'; j <= 'J'; j++)
                 {
                     
                     String cellName = "grid" + j + "" + i;
-                    Console.WriteLine(cellName);
                     var recky = shipyardGrid.FindName(cellName) as System.Windows.Shapes.Rectangle;
                     recky.Fill = Helper.getBrushColor("#FFFFFF");
                 }
